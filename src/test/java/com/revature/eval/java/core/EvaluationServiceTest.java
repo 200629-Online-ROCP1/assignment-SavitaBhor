@@ -27,6 +27,7 @@ public class EvaluationServiceTest {
 	 ******************************************************************/
 	@Test
 	public void testSpeedConverter1() {
+		
 		assertEquals(1, EvaluationService.SpeedConverter.toMilesPerHour(1.5));
 	}
 	
@@ -45,11 +46,13 @@ public class EvaluationServiceTest {
 	 ******************************************************************/
 	@Test
 	public void testPrintConversion1() {
+		
 		assertEquals("1.5 km/h = 1 mi/h", EvaluationService.SpeedConverter.printConversion(1.5));
 	}
 	
 	@Test
 	public void testPrintConversion2() {
+		
 		assertEquals("10.25 km/h = 6 mi/h", EvaluationService.SpeedConverter.printConversion(10.25));
 	}
 	
@@ -63,6 +66,7 @@ public class EvaluationServiceTest {
 	 ******************************************************************/
 	@Test
 	public void testPrintMegaBytesAndKiloBytes1() {
+		
 		assertEquals("2500 KB = 2 MB and 452 KB", evaluationService.printMegaBytesAndKiloBytes(2500));
 	}
 	

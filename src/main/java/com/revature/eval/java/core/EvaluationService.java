@@ -5,6 +5,14 @@ import java.util.Map;
 
 public class EvaluationService {
 
+	/*public static void main(String[] args) {
+		
+		EvaluationService eval = new EvaluationService();
+		
+		System.out.println(eval.printMegaBytesAndKiloBytes(2500));
+	
+		
+	}*/
 	/**
 	 * 1.A Speed Converter - Convert to MilesPerHour
 	 * 
@@ -19,11 +27,20 @@ public class EvaluationService {
 	 * and return it. For conversion and rounding use Math.round().
 	 */
 	static class SpeedConverter {
+		
+		
 
 		public static long toMilesPerHour(double kilometersPerHour) {
 			// TODO Write an implementation for this method declaration
-			return 0;
-		}
+			if(kilometersPerHour < 0) {
+				return -1;
+			}
+			else {
+				long milesPerHour = Math.round(0.6214 * kilometersPerHour) ;
+				return milesPerHour;
+			}
+			}
+		
 
 		/**
 		 * 1.B Speed Converter - Print Conversion
@@ -42,7 +59,18 @@ public class EvaluationService {
 		 */
 		public static String printConversion(double kilometersPerHour) {
 			// TODO Write an implementation for this method declaration
-			return null;
+			long mph = toMilesPerHour(kilometersPerHour);
+			String message;
+			if (mph<0) {
+				message = "Invalid Value";
+				return message;
+			
+			}
+			else {
+				message = kilometersPerHour + " km/h = "+ mph+ " mi/h";
+				return message;
+			}
+	
 		}
 	}
 
@@ -66,9 +94,22 @@ public class EvaluationService {
 	 * If the parameter kiloBytes is less than 0 then print the text "Invalid
 	 * Value".
 	 */
-	public String printMegaBytesAndKiloBytes(int XX) {
+	public String printMegaBytesAndKiloBytes(int kiloBytes) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		int myKiloBytes = kiloBytes;
+		int myMegaBytes = 0;
+		if(kiloBytes < 0) {
+			return ("Invalid Value");
+		}
+		else {
+			while(kiloBytes > 1024) {
+				kiloBytes = kiloBytes -1024;
+				myMegaBytes++;
+			}
+			return myKiloBytes + " KB = " + myMegaBytes + " MB and " + kiloBytes + " KB";
+		}
+		
+		
 	}
 
 	/**
@@ -92,7 +133,16 @@ public class EvaluationService {
 	 */
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
 		// TODO Write an implementation for this method declaration
-		return false;
+		
+		if(hourOfDay <0 || hourOfDay >23) {
+			return false;
+		}else if(hourOfDay >8 && hourOfDay <23){
+			return false;
+		}else if(!isBarking) {
+			return false;
+		}else
+			return true;
+		
 	}
 
 	/**
@@ -108,6 +158,12 @@ public class EvaluationService {
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
 		// TODO Write an implementation for this method declaration
+		long firstNo = Math.round(firstNum *1000);
+		long secondNo = Math.round(secondNum *1000);
+		
+		if(firstNo == secondNo) {
+			return true;
+		}else
 		return false;
 	}
 
@@ -125,6 +181,13 @@ public class EvaluationService {
 
 		public static boolean hasTeen(int x, int y, int z) {
 			// TODO Write an implementation for this method declaration
+			if(isTeen(x)){
+				return true;
+			}else if(isTeen(y)) {
+				return true;
+			}else if(isTeen(z)) {
+				return true;
+			}else
 			return false;
 		}
 
@@ -133,6 +196,10 @@ public class EvaluationService {
 
 		public static boolean isTeen(int number) {
 			// TODO Write an implementation for this method declaration
+			if(number >=13 && number <=19) {
+				return true;
+			}
+			else
 			return false;
 		}
 	}
@@ -154,7 +221,21 @@ public class EvaluationService {
 	 */
 	public String printYearsAndDays(long minutes) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		int years =0;
+		int days = 0;
+		if(minutes < 0) {
+			return "Invalid Value";
+		}
+		else {
+			days = (int) (minutes/(24*60));
+			while(days >=365) {
+				years++;
+				days=days - 365;
+			}
+			System.out.println(years);
+			return minutes + " min = " + years + " y and "+ days + " d";
+		}
+		
 	}
 
 	/**
