@@ -170,7 +170,7 @@ public class EvaluationServiceTest {
 	 ******************************************************************/
 	@Test
 	public void testGreatestCommonDivisor1() {
-		assertEquals(5, evaluationService.getGreatestCommonDivisor(25, 15));
+		assertEquals(5, evaluationService.getGreatestCommonDivisor(25,15));
 	}
 	
 	@Test

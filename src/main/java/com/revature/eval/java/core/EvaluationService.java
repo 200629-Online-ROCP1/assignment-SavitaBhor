@@ -249,7 +249,32 @@ public class EvaluationService {
 	 */
 	public String printNumberInWord(int number) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		
+			switch(number) {
+			case 1:
+				return "ONE";
+			case 2:
+				return "TWO";
+			case 3:
+				return "THREE";
+			case 4:
+				return "FOUR";
+			case 5:
+				return "FIVE";
+			case 6:
+				return "SIX";
+			case 7:
+				return "SEVEN";
+			case 8:
+				return "EIGHT";
+			case 9:
+				return "NINE";
+			default :
+				System.out.println(number);
+				return "OTHER";
+		
+		}
+		
 	}
 
 	/**
@@ -273,7 +298,31 @@ public class EvaluationService {
 	 */
 	public int getGreatestCommonDivisor(int first, int second) {
 		// TODO Write an implementation for this method declaration
-		return 0;
+		if(first <10 || second < 10) {
+			return -1;
+		}else {
+				int max = 0;
+				int min = 0;
+				int divisor = 0;
+				if((first - second)<0) {
+					max =second;
+					min = first;
+				}else {
+					max = first;
+					min = second;
+				}
+				System.out.println(max);
+				System.out.println(min);
+				for(int i=1;i<=min;i++) {
+					if(min%i==0 && max%i==0) {
+						divisor=i;
+						//System.out.println(divisor);
+					}
+				}
+				System.out.println(divisor);
+				return divisor;
+		}
+		
 	}
 
 	/**
@@ -291,7 +340,19 @@ public class EvaluationService {
 	 */
 	public int sumFirstAndLastDigit(int num) {
 		// TODO Write an implementation for this method declaration
-		return 0;
+		int fDigit,lDigit;
+		if(num<0) {
+			return -1;
+		}else {
+			lDigit = num%10;
+			while(num >=10) {
+				num=num/10;
+			}
+			fDigit = num;
+			return lDigit + fDigit;
+			}
+			
+		
 	}
 
 	/**
@@ -302,7 +363,13 @@ public class EvaluationService {
 	 */
 	public String reverse(String string) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		String reverse = new String();
+		for(int i= string.length()-1;i>=0;i--) {
+			
+			reverse = reverse+string.charAt(i);
+			System.out.println(reverse);
+		}
+		return reverse;
 	}
 
 	/**
@@ -544,7 +611,9 @@ public class EvaluationService {
 	 */
 	
 	public int[] threeLuckyNumbers() {
-		return null;
+		//return null; comment below 2lines ,added by me to get rid of error
+		 int [] returnVal = new int[0];
+	        return returnVal;
 	}
 	
 	/*
